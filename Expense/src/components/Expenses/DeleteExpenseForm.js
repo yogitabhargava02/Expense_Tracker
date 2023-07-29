@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import { BASE_URL } from '../helper';
 const DeleteExpenseForm = ({ onClose, expenseId }) => {
   const handleDelete = async () => {
     try {
@@ -8,7 +8,7 @@ const DeleteExpenseForm = ({ onClose, expenseId }) => {
             alert("Expense ID is missing");
             return;
           }
-      const res = await axios.delete(`http://localhost:8000/expenses/delete/${expenseId}`);
+      const res = await axios.delete(`${BASE_URL}expenses/delete/${expenseId}`);
       console.log("Server Response Data:", res.data);
       console.log("Server Response Status:", res.status);
 

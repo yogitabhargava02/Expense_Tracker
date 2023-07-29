@@ -7,7 +7,7 @@ import { faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import EditExpenseForm from './EditExpenseForm';
 import DeleteExpenseForm from './DeleteExpenseForm';
-
+import { BASE_URL } from '../helper';
 const ExpenseTable = ({ searchInput,loggedInUser  }) => {
   const [expenseIdToDelete, setExpenseIdToDelete] = useState(null);
   const [expenseData, setExpenseData] = useState([]);
@@ -19,7 +19,7 @@ const ExpenseTable = ({ searchInput,loggedInUser  }) => {
   const [dateFilter, setDateFilter] = useState("");
 
   useEffect(() => {
-    fetch("http://localhost:8000/getAllExpenses", {
+    fetch(`${BASE_URL}getAllExpenses`, {
       method: "GET",
     })
       .then((res) => res.json())

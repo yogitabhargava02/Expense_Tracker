@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { BASE_URL } from "../helper";
 const EditExpenseForm = ({ onClose, expense }) => {
   // Check if 'expense' prop is defined, otherwise provide an empty object as default value
   const initialExpense = expense || {};
@@ -18,7 +18,7 @@ const EditExpenseForm = ({ onClose, expense }) => {
     e.preventDefault();
 
     try {
-      const res = await axios.put(`http://localhost:8000/expenses/update/${expense._id}`, {
+      const res = await axios.put(`${BASE_URL}expenses/update/${expense._id}`, {
         name,
         description,
         category,

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import { BASE_URL } from "../helper";
 const CreateExpenseForm = ({ onClose }) => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -14,7 +14,7 @@ const CreateExpenseForm = ({ onClose }) => {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8000/create", {
+      const res = await axios.post(`${BASE_URL}create`, {
         name,
         description,
         category,

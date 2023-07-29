@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../../../src/global.css';
+import { BASE_URL } from '../helper';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8000/", {
+      const res = await axios.post(`${BASE_URL}`, {
         email,
         password,
       });

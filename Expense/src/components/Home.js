@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./Home.css";
+import "../assets/css/Home.css";
+
 import CreateExpenseForm from "./Expenses/CreateExpenseForm";
 import ExpenseTable from "./Expenses/ExpenseTable";
 import { useLocation } from 'react-router-dom';
-
+import { BASE_URL } from "./helper";
 export default function Home() {
   const [searchInput, setSearchInput] = useState("");
   const [NewExpense, setNewExpense] = useState(false);
@@ -16,7 +17,7 @@ export default function Home() {
   
   useEffect(() => {
     // Fetch the expense data and set it in the state
-    fetch("http://localhost:8000/getAllExpenses", {
+    fetch(`${BASE_URL}getAllExpenses`, {
       method: "GET",
     })
       .then((res) => res.json())

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { BASE_URL } from '../helper';
 export default function Register() {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
@@ -12,7 +12,7 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      const res = await axios.post('http://localhost:8000/register', {
+      const res = await axios.post(`${BASE_URL}register`, {
         email,
         password,
         cpassword,

@@ -1,6 +1,10 @@
 import React, { Fragment } from 'react';
 import { Disclosure, Menu, Transition } from '@headlessui/react';
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
+import { XIcon as XMarkIcon } from '@heroicons/react/outline';
+import { MenuAlt3Icon as Bars3Icon } from '@heroicons/react/outline';
+import { BellIcon } from '@heroicons/react/outline';
+
+import logoImage from "../../assets/images/logo512.png";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -8,29 +12,29 @@ function classNames(...classes) {
 
 export default function Example() {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-blue-100">
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 bg-blue-100">
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex flex-shrink-0 items-center">
-                <h1 className="text-white text-2xl font-bold">My Expense Manager</h1>
+                <img src={logoImage} alt="Logo" className="h-32 w-32 mr-2" />
               </div>
 
               <div className="flex-1 flex justify-end items-center">
                 <div className="flex space-x-4">
                   <button
                     type="button"
-                    className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                    className="rounded-full bg-blue-100 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
                   </button>
 
-                  {/* Profile dropdown */}
+                  
                   <Menu as="div" className="relative ml-3">
                     <div>
-                      <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                      <Menu.Button className="flex rounded-full bg-green-200 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                         <span className="sr-only">Open user menu</span>
                         <img
                           className="h-8 w-8 rounded-full"
