@@ -6,9 +6,10 @@ import Home from "./components/Home";
 import CreateExpenseForm from "./components/Expenses/CreateExpenseForm";
 import EditExpenseForm from "./components/Expenses/EditExpenseForm";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
+import "./App.css";
 export default function App() {
   return (
+    
     <Router>
       <MainNavbar />
       <Routes>
@@ -20,5 +21,6 @@ export default function App() {
         <Route path="/edit/:expenseId" element={<EditExpenseForm />} />
       </Routes>
     </Router>
+ 
   );
 }

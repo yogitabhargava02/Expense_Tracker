@@ -168,3 +168,26 @@
   border: none;
   background-color: #a8f556;
 }
+/* global.css */
+
+/* Beautiful color styles */
+:root {
+  --primary-color: #4CAF50;
+  --secondary-color: #2196F3;
+  --accent-color: #FFC107;
+}
+
+/* Margin utility classes */
+.margin-top-small {
+  margin-top: 8px;
+}
+
+.margin-top-medium {
+  margin-top: 16px;
+}
+
+.margin-top-large {
+  margin-top: 24px;
+}
+
+/* Add more margin utility classes as needed */

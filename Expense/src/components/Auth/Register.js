@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Register() {
-  const history = useNavigate();
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [cpassword, setConfirmPassword] = useState('');
@@ -12,18 +12,18 @@ export default function Register() {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:8000/register', {
+      const res = await axios.post('http://localhost:8000/register', {
         email,
         password,
         cpassword,
-      }).then(res => {
-        if (res === "exist") {
-          alert("User already exists");
-        } else if (res === "not exist") {
-          history("/", { state: { id: email } });
-          alert("User has not signed up");
-        }
       });
+
+      if (res.data === "exist") {
+        alert("User already exists");
+      } else if (res.data === "not exist") {
+        alert("Registered Successfully");
+        navigate('/home', { state: {} });
+      }
     } catch (error) {
       alert("Error during registration: " + error.response?.data?.message);
       console.log(error);
@@ -40,7 +40,7 @@ export default function Register() {
             alt="Your Company"
           />
           <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Register
+            Register Your Account
           </h2>
         </div>
 
@@ -66,6 +66,9 @@ export default function Register() {
 
             <div>
               <div className="mt-2">
+                <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                  Password
+                </label>
                 <input
                   id="password"
                   name="password"
@@ -81,6 +84,9 @@ export default function Register() {
 
             <div>
               <div className="mt-2">
+                <label htmlFor="cpassword" className="block text-sm font-medium leading-6 text-gray-900">
+                  Confirm Password
+                </label>
                 <input
                   id="cpassword"
                   name="cpassword"
