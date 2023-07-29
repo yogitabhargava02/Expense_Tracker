@@ -1,8 +1,7 @@
-const express = require('express');
+// This code represents the Controller for creating an expense
 const Expense = require('../models/expenseSchema');
-const router = express.Router();
 
-router.post('/', async (req, res) => {
+const createExpense = async (req, res) => {
   const { name, description, category, dateExpense, expenseAmount } = req.body;
 
   if (!name || !description || !category || !dateExpense || !expenseAmount) {
@@ -24,6 +23,6 @@ router.post('/', async (req, res) => {
     res.status(500).json({ message: "An error occurred during registration" });
     console.log(error);
   }
-});
+};
 
-module.exports = router;
+module.exports = createExpense;
